@@ -2,7 +2,7 @@ import numpy as np
 import scipy.sparse as sp
 import torch
 import torch.nn as nn
-from model import GAD
+from model import DGAD
 import torch_geometric.utils as utils
 from utils import *
 from args import parameter_parser
@@ -106,7 +106,7 @@ for run in range(args.runs):
     feat_size = features.size(1)
 
 
-    model = GAD(feat_size=features.size(1), hidden_size=args.hidden_dim, dropout=args.dropout)
+    model = DGAD(feat_size=features.size(1), hidden_size=args.hidden_dim, dropout=args.dropout)
     if args.device == 'cuda' and torch.cuda.is_available():
         print('use cuda')
         device = torch.device(args.device)
