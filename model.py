@@ -58,9 +58,9 @@ class Fusion(nn.Module):
 
 
 
-class GAD(nn.Module):
+class DGAD(nn.Module):
     def __init__(self, feat_size, hidden_size, dropout):
-        super(GAD, self).__init__()
+        super(DGAD, self).__init__()
         self.shared_encoder = Encoder(feat_size, hidden_size, dropout)
         self.attr_decoder = Attribute_Decoder(feat_size, hidden_size, dropout)
         self.lin = nn.Linear(feat_size, hidden_size)
